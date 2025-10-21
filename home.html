@@ -1,1 +1,515 @@
-dsfas
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rod's Boat & Marine Repairs</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Google Fonts for professional typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Enhanced CSS for more professional design: Clean lines, modern fonts, subtle shadows, marine theme */
+        :root {
+            --primary-blue: #003f87; /* Deeper professional blue */
+            --secondary-blue: #007bff;
+            --accent-blue: #00aaff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+        /* Navbar: Sticky, with shadow */
+        .navbar {
+            background-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 1.2rem 0;
+        }
+        .navbar-brand {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white) !important;
+        }
+        .navbar-brand img {
+            width: 45px;
+            height: 45px;
+            margin-right: 12px;
+        }
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            margin: 0 1.2rem;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-blue) !important;
+        }
+        /* Hero: Adjusted overlay for better text readability */
+        .hero {
+            background: linear-gradient(rgba(0, 63, 135, 0.75), rgba(0, 63, 135, 0.75)), url('https://sika.scene7.com/is/image/sika/us-industry-marine-repair-hero-sailboat-image:16-9?wid=1920&hei=1080&fit=crop%2C1') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+        .hero-content {
+            background: rgba(0, 0, 0, 0.5); /* Increased transparency for better readability */
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 90%;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .btn-primary {
+            background-color: var(--secondary-blue);
+            border-color: var(--secondary-blue);
+            padding: 14px 35px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+        /* Sections: More padding, subtle backgrounds */
+        .section {
+            padding: 100px 0;
+        }
+        .section h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary-blue);
+        }
+        .card {
+            background: var(--white);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .card-title {
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+        /* About Section */
+        .about-row img {
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: 450px;
+            object-fit: cover;
+        }
+        /* Gallery Section: Adjusted for responsiveness */
+        .gallery-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        /* Blog Section */
+        .blog-card img {
+            height: 200px;
+        }
+        .blog-card .card-body {
+            padding: 1.5rem;
+        }
+        /* Footer: Multi-column, with logo, important pages, social icons */
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        .footer a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: var(--accent-blue);
+        }
+        .footer-logo {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .footer h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .social-icons a {
+            margin: 0 12px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .social-icons a:hover {
+            transform: scale(1.15);
+            filter: brightness(1.2) hue-rotate(180deg); /* Adjusted hover effect for better contrast */
+        }
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .hero-content {
+                max-width: 95%;
+                padding: 20px;
+            }
+            .about-row img {
+                height: 250px;
+                margin-bottom: 20px;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .gallery-img {
+                height: 200px;
+            }
+            .card img {
+                height: 180px;
+            }
+            .blog-card img {
+                height: 150px;
+            }
+            .navbar-nav .nav-link {
+                margin: 0.5rem 0;
+            }
+            .footer {
+                padding: 40px 0 20px;
+            }
+            .footer .col-md-4 {
+                text-align: center !important;
+                margin-bottom: 20px;
+            }
+            .social-icons img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .about-row {
+                flex-direction: column;
+            }
+            .gallery-img {
+                height: 150px;
+            }
+            .card img {
+                height: 150px;
+            }
+            .blog-card img {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn.vectorstock.com/i/1000v/97/60/simple-boat-icon-logo-design-vector-49819760.jpg" alt="Logo" class="d-inline-block">
+                Rod's Boat & Marine Repairs
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Professional Boat & Marine Repairs</h1>
+            <p>Your Expert Partner for Reliable Marine Services in Sydney</p>
+            <a href="#contact" class="btn btn-primary">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-light">
+        <div class="container">
+            <h2>About Rod's Boat & Marine Repairs</h2>
+            <div class="row about-row align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://lynnhavenmarine.com/wp-content/uploads/2019/10/Service-3-959x640.jpg" alt="Workshop Interior">
+                </div>
+                <div class="col-lg-6">
+                    <p>Established in Mount Druitt, NSW, Rod's Boat & Marine Repairs offers top-tier services for boat owners across Sydney. With over 10 years of experience, our certified team handles everything from routine maintenance to complex repairs and custom upgrades.</p>
+                    <p>We prioritize quality, safety, and customer satisfaction, using the latest tools and techniques to ensure your boat performs at its best.</p>
+                    <address>
+                        <strong>Address:</strong> 6/41 Kurrajong Ave, Mount Druitt NSW 2770<br>
+                        <strong>Phone:</strong> 0405 756 846<br>
+                        <strong>Email:</strong> info@rodsboatrepairs.com
+                    </address>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://media.gettyimages.com/id/510058550/photo/cvt-gearbox-repair-closeup.jpg?s=612x612&w=gi&k=20&c=4eoM8bPTnWriwGqzjGFdk-ArkBqoyM1qTy1xs4pfTA0=" alt="Engine Repair">
+                        <div class="card-body">
+                            <h5 class="card-title">Engine Repairs</h5>
+                            <p>Comprehensive diagnostics and repairs for all marine engines to ensure peak performance and longevity.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://www.multiflexmarine.com/wp-content/uploads/2022/03/shutterstock_1647853552-scaled.jpg" alt="Maintenance">
+                        <div class="card-body">
+                            <h5 class="card-title">Routine Maintenance</h5>
+                            <p>Tailored maintenance plans to prevent issues and keep your boat in pristine condition year-round.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://newwiremarine.com/wp-content/uploads/2023/06/Essential-Upgrades-blog-post-cover.jpg" alt="Upgrades">
+                        <div class="card-body">
+                            <h5 class="card-title">Custom Upgrades</h5>
+                            <p>Personalized modifications and installations to enhance functionality, comfort, and style.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section bg-light">
+        <div class="container">
+            <h2>Image Gallery</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <img src="https://images.pexels.com/photos/163236/boat-sea-ocean-water-163236.jpeg" alt="Boat 1" class="gallery-img">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.pexels.com/photos/1064136/pexels-photo-1064136.jpeg" alt="Boat 2" class="gallery-img">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.pexels.com/photos/843633/pexels-photo-843633.jpeg" alt="Boat 3" class="gallery-img">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.pexels.com/photos/2265876/pexels-photo-2265876.jpeg" alt="Boat 4" class="gallery-img">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.pexels.com/photos/163236/boat-sea-ocean-water-163236.jpeg" alt="Boat 5" class="gallery-img">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.pexels.com/photos/1064136/pexels-photo-1064136.jpeg" alt="Boat 6" class="gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2>Our Blog</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card blog-card">
+                        <img src="https://images.pexels.com/photos/3370529/pexels-photo-3370529.jpeg?cs=srgb&dl=pexels-tomfisk-3370529.jpg&fm=jpg" alt="Boat Maintenance Tips">
+                        <div class="card-body">
+                            <h5 class="card-title">Top Boat Maintenance Tips</h5>
+                            <p>Learn essential tips to keep your boat running smoothly all season long.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card blog-card">
+                        <img src="https://www.shutterstock.com/image-photo/propeller-rudder-big-ship-underway-600nw-1383284051.jpg" alt="Choosing the Right Engine">
+                        <div class="card-body">
+                            <h5 class="card-title">Choosing the Right Marine Engine</h5>
+                            <p>Guide to selecting the best engine for your boating needs.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card blog-card">
+                        <img src="https://i.ytimg.com/vi/LQp5SqOanzk/maxresdefault.jpg" alt="Upgrade Ideas">
+                        <div class="card-body">
+                            <h5 class="card-title">Boat Upgrade Ideas for 2025</h5>
+                            <p>Discover the latest trends in boat customizations.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center text-md-start">
+                    <img src="https://cdn.vectorstock.com/i/1000v/97/60/simple-boat-icon-logo-design-vector-49819760.jpg" alt="Logo" class="footer-logo">
+                    <p>Rod's Boat & Marine Repairs<br>Mount Druitt, NSW</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>Important Pages</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/RodsBoatRepairs/" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="filter: brightness(0) invert(1);">
+                        </a>
+                        <a href="https://www.instagram.com/rods_boat_and_marine_repairs/" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="filter: brightness(0) invert(1);">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2025 Rod's Boat & Marine Repairs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission placeholder
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll respond shortly.');
+        });
+    </script>
+</body>
+</html>
